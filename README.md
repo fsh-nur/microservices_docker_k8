@@ -14,4 +14,11 @@ Docker is an open-source platform which allows us to deploy and manage applicati
 
 ## Virtualisation VS Containerisation
 
+In virtualization, multiple virtual machines are running, each with its own operating system, where as in containerisation, containers share the same operating host, howoever isolate the application and all its dependencies from the rest of the system.
+
+Multiple containers can share the same host and resources,as well as being managed through platforms such as Docker and Kubernetes. In virtualization multiple instances of different operating systems are run on the same hardware with its own hardware resources, virtualised- each with it's own CPU, memory, storage etc.
+
+Virtualisation incurs more costs since there are complete operating systems being run for each virtual machine, however with containerization, all containers can be run on the same operating system
+
 ## What is K8
+
