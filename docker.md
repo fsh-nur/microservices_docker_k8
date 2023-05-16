@@ -108,5 +108,47 @@ docker ps
 
 ```
 
+## Creating in image for our app:
 
+1. Make sure that there is nothing running on `port:80` as we will be using this
+2. Create a directory and move your `app` and `environment` folder there
+3. Create a `Dockerfile` and input the following code:
 
+```
+nano Dockerfile
+```
+```
+FROM nginx
+LABEL MAINTAINER=FATIMA@SPARTA
+
+EXPOSE 80
+EXPOSE 3000
+
+RUN apt-get update
+RUN apt-get install -y
+RUN apt-get install software-properties-common -y
+RUN apt-get install npm -y
+
+CMD ["nginx", "-g", daemon off;"]
+WORKDIR /home/app
+RUN npm install
+CMD ["npm", "start"]
+```
+
+4. Now run a `build` 
+
+```
+docker build -t fshei/node-app
+```
+
+5. Run the app
+
+```
+docker runn -d -p 80:3000 fshei/node-app
+```
+
+6. Push to DockerHub
+
+```
+docker push fshei/node-app
+```
