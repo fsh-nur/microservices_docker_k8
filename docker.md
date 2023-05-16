@@ -51,3 +51,60 @@ Now we can make changes on the website such as this:
 
 ![Screenshot_1](https://github.com/fsh-nur/microservices_docker_k8/assets/129324316/ecabb353-80a2-48ff-af9d-d46689afd838)
 
+
+## Automating the creation of a docker image using a `DockerFile`
+
+1. Create a `Dockerfile` in your local directory
+
+```
+nano dockerfile
+```
+
+2. Input the following code withing your `dockerfile`
+
+```
+FROM nginx
+LABEL MAINTAINER=FATIMA@SPARTA
+COPY index.html /usr/share/nginx/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+# docker build
+#docker images to confirm the name
+#docker run image name
+#docker ps as well as localhost
+
+```
+
+3. Now we build our image 
+
+```
+docker build -t fshei/fatima_profile .
+```
+`fshei` - my repository on dockerhub
+`fatima_profile` - the name of my image
+`.` - don't forget the `.` at the end letting it know to build from your local host
+
+4. Now we check if our image has built
+
+```
+docker images
+```
+5. Check the container
+
+```
+docker ps
+```
+
+6. Run the container on `port:80`
+
+```
+ docker run -d -p 80:80 fshei/fatima_profile
+
+```
+7. Now we push to dockerhub
+
+```
+ docker push fshei/fatima_profile
+
+```
+
