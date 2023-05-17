@@ -144,7 +144,7 @@ docker build -t fshei/node-app
 5. Run the app
 
 ```
-docker runn -d -p 80:3000 fshei/node-app
+docker run -d -p 80:3000 fshei/node-app
 ```
 
 6. Push to DockerHub
