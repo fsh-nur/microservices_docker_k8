@@ -1,6 +1,6 @@
 ## Obtaining an image from docker and building it:
 
-1. Oopen Gitbash and run the following command:
+1. Open Gitbash and run the following command:
 
 ```
 $ docker run -d  -p 80:80 nginx
@@ -118,21 +118,13 @@ docker ps
 nano Dockerfile
 ```
 ```
-FROM nginx
-LABEL MAINTAINER=FATIMA@SPARTA
-
-EXPOSE 80
-EXPOSE 3000
-
-RUN apt-get update
-RUN apt-get install -y
-RUN apt-get install software-properties-common -y
-RUN apt-get install npm -y
-
-CMD ["nginx", "-g", daemon off;"]
-WORKDIR /home/app
+FROM node:16
+LABEL MAINTAINER=fatima@sparta
+COPY app/ .
+Expose 3000
 RUN npm install
-CMD ["npm", "start"]
+CMD ["node", "app.js"]
+
 ```
 
 4. Now run a `build` 
@@ -152,3 +144,10 @@ docker run -d -p 80:3000 fshei/node-app
 ```
 docker push fshei/node-app
 ```
+
+7. You should see the page when naviagting to your local host
+
+
+![reversre](https://github.com/fsh-nur/microservices_docker_k8/assets/129324316/b8d184ce-c4cc-4aa7-9ffe-f963d048a38f)
+
+
